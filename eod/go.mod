@@ -16,4 +16,4 @@ require (
 	golang.org/x/sys v0.3.0 // indirect
 )
 
-replace github.com/bwmarrin/discordgo => github.com/celestialresonance94/harmonygo v0.26.3
+replace github.com/bwmarrin/discordgo => github.com/celestialresonance94/harmonygo v0.26.4
