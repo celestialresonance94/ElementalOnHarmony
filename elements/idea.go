@@ -123,7 +123,7 @@ func (e *Elements) IdeaHandler(c sevcord.Ctx, params string) {
 	if cmdtype == "randomcombo" {
 		var msgtext string
 		if foundEl {
-			msgtext = fmt.Sprintf("Your random combination is... **%s**\n\tSuggest a result using </suggest:%s>", elDesc.String(), suggestCmdId)
+			msgtext = fmt.Sprintf("Your random combination is... **%s**\n\tSuggest a result using !suggest", elDesc.String(), suggestCmdId)
 			e.base.SaveCombCache(c, types.CombCache{Elements: util.Map(els, func(a int32) int { return int(a) }), Result: -1})
 		} else {
 			have := false
@@ -157,7 +157,7 @@ func (e *Elements) IdeaHandler(c sevcord.Ctx, params string) {
 		e.base.SaveCombCache(c, types.CombCache{Elements: util.Map(els, func(a int32) int { return int(a) }), Result: -1})
 
 		c.Respond(
-			sevcord.NewMessage(fmt.Sprintf("Your random unused combination is... **%s**\n\tSuggest a result using </suggest:%s>", elDesc.String(), suggestCmdId)).
+			sevcord.NewMessage(fmt.Sprintf("Your random unused combination is... **%s**\n\tSuggest a result using !suggest", elDesc.String(), suggestCmdId)).
 				AddComponentRow(sevcord.NewButton("New Idea", sevcord.ButtonStylePrimary, "idea", params).
 					WithEmoji(sevcord.ComponentEmojiCustom("idea", "932832178847502386", false))),
 		)

@@ -163,7 +163,7 @@ func (e *Elements) Combine(c sevcord.Ctx, elemVals []string) {
 	err = e.db.QueryRow(`SELECT result FROM combos WHERE guild=$1 AND els=$2`, c.Guild(), pq.Array(items)).Scan(&result)
 	if err != nil {
 		if err == sql.ErrNoRows {
-			c.Respond(sevcord.NewMessage(fmt.Sprintf("That combination doesn't exist! %s\n\tSuggest a result using </suggest:%s>", types.RedCircle, suggestCmdId)))
+			c.Respond(sevcord.NewMessage(fmt.Sprintf("That combination doesn't exist! %s\n\tSuggest a result using !suggest", types.RedCircle, suggestCmdId)))
 			return
 		}
 
