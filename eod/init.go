@@ -56,7 +56,7 @@ func (b *Bot) Init() {
 				AutoComplete(b.queries.Autocomplete),
 		),
 	))
-	b.s.RegisterSlashCommand(sevcord.NewSlashCommandGroup("image", "Change an image!",
+	/* b.s.RegisterSlashCommand(sevcord.NewSlashCommandGroup("image", "Change an image!",
 		sevcord.NewSlashCommand(
 			"element",
 			"Change the image of an element!",
@@ -87,7 +87,7 @@ func (b *Bot) Init() {
 				AutoComplete(b.queries.Autocomplete),
 			sevcord.NewOption("image", "The image to change it to!", sevcord.OptionKindAttachment, true),
 		),
-	))
+	)) */
 	b.s.RegisterSlashCommand(sevcord.NewSlashCommandGroup("color", "Change a color!",
 		sevcord.NewSlashCommand(
 			"element",

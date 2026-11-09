@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
+	"log"
 
 	"github.com/Nv7-Github/Nv7Haven/eod/base"
 	"github.com/Nv7-Github/Nv7Haven/eod/categories"
@@ -13,6 +14,7 @@ import (
 	"github.com/Nv7-Github/Nv7Haven/eod/queries"
 	"github.com/Nv7-Github/sevcord/v2"
 	"github.com/jmoiron/sqlx"
+	"github.com/bwmarrin/discordgo"
 )
 
 type Bot struct {
@@ -28,7 +30,15 @@ type Bot struct {
 	queries    *queries.Queries
 }
 
+
 func InitEod(db *sqlx.DB, token string) {
+    // Redirect DiscordGo to Harmony
+    discordgo.EndpointDiscord = "https://api.harmony.melodychat.org/"
+    discordgo.EndpointAPI = discordgo.EndpointDiscord + "api/v9/"
+	discordgo.EndpointApplications = discordgo.EndpointAPI + "applications/"
+    discordgo.EndpointGateway = discordgo.EndpointAPI + "gateway"
+    discordgo.EndpointGatewayBot = discordgo.EndpointAPI + "gateway/bot"
+	
 	s, err := sevcord.New(token)
 	if err != nil {
 		panic(err)
@@ -46,5 +56,8 @@ func InitEod(db *sqlx.DB, token string) {
 		fmt.Println("Saving command stats...")
 		b.base.SaveCommandStats("", nil)
 	}()
+
+	log.Println("Application endpoint:", discordgo.EndpointApplications)
+
 	b.s.Listen()
 }
