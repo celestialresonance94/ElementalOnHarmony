@@ -137,7 +137,7 @@ func (e *Elements) Combine(c sevcord.Ctx, elemVals []string) {
 		}
 	}
 	if len(dontHave) == 1 {
-		c.Respond(sevcord.NewMessage(fmt.Sprintf("You don't have **%s**! %s", dontHave[0], types.RedCircle)))
+		c.Respond(sevcord.NewMessage(fmt.Sprintf("You don't have %s! %s", dontHave[0], types.RedCircle)))
 		return
 	} else if len(dontHave) > 1 {
 		c.Respond(sevcord.NewMessage(makeListResp("You don't have", "or", "!", dontHave)))
