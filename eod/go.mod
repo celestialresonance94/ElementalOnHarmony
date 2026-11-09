@@ -17,3 +17,4 @@ require (
 )
 
 replace github.com/bwmarrin/discordgo => github.com/celestialresonance94/harmonygo v0.26.4
+replace github.com/Nv7-Github/sevcord/v2 => github.com/celestialresonance94/sevmony/v2 v2.4.4-0.20261109094402-bc0e44636334
