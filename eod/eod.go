@@ -32,12 +32,6 @@ type Bot struct {
 
 
 func InitEod(db *sqlx.DB, token string) {
-    // Redirect DiscordGo to Harmony
-    discordgo.EndpointDiscord = "https://api.harmony.melodychat.org/"
-    discordgo.EndpointAPI = discordgo.EndpointDiscord + "api/v9/"
-	discordgo.EndpointApplications = discordgo.EndpointAPI + "applications/"
-    discordgo.EndpointGateway = discordgo.EndpointAPI + "gateway"
-    discordgo.EndpointGatewayBot = discordgo.EndpointAPI + "gateway/bot"
 	
 	s, err := sevcord.New(token)
 	if err != nil {
